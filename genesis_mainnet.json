@@ -1,0 +1,70 @@
+{
+  "chain_id": "alpha-mainnet-1",
+  "genesis_time": "2026-07-01T00:00:00Z",
+  "version": "1.0.0",
+  "total_supply": 1000000000,
+  "treasury_block_rewards": 900000000,
+  "treasury_ecosystem_bootstrap": 100000000,
+  "min_stake": 1000,
+  "block_time_ms": 500,
+  "slash_penalty": 0.10,
+  "data_marketplace_fee_rate": 0.05,
+  "oracle_free_for_registered": true,
+  "oracle_external_burn": 10,
+  "bootstrap_bonus_agents": 1000,
+  "bootstrap_bonus_amount": 10000,
+  "annual_emission_year_1": 100000000,
+  "emission_decay_rate": 0.80,
+  "deflationary_crossover_estimated_year": 8,
+  "staking": {
+    "sybil_deterrent_exponential": true,
+    "agent_stake_tiers": [
+      {"agent_index": 1, "stake_required": 1000},
+      {"agent_index": 2, "stake_required": 10000},
+      {"agent_index": 3, "stake_required": 100000},
+      {"agent_index_note": "each additional agent requires 10x the previous stake"}
+    ],
+    "min_agent_stake": 1000,
+    "slash_penalty_percent": 10
+  },
+  "agent_trust_tiers": {
+    "seed":    {"earning_multiplier": 0.1, "max_task_value": 10,    "validator_eligible": false},
+    "active":  {"earning_multiplier": 0.5, "max_task_value": 100,   "validator_eligible": false},
+    "trusted": {"earning_multiplier": 1.5, "max_task_value": 1000,  "validator_eligible": true},
+    "elite":   {"earning_multiplier": 3.0, "max_task_value": 0,     "validator_eligible": true, "note": "unlimited task value"}
+  },
+  "consensus": {
+    "type": "Proof of Intelligence (PoI)",
+    "bft_quorum": "2/3 + 1",
+    "block_time_ms": 500,
+    "poi_layers": [
+      "behavioral_fingerprinting",
+      "zk_proof_of_compute",
+      "cross_agent_consensus",
+      "activity_chain"
+    ]
+  },
+  "genesis_validators": {
+    "note": "Placeholder — to be filled with initial validator set before mainnet launch",
+    "validators": []
+  },
+  "genesis_accounts": {
+    "note": "No founder/VC allocation. All tokens originate from protocol treasuries.",
+    "block_rewards_treasury": "alpha1_block_rewards_treasury",
+    "ecosystem_bootstrap_treasury": "alpha1_ecosystem_bootstrap_treasury"
+  },
+  "bootstrap_program": {
+    "note": "First 1000 agents receive bonus $ALPHA for bootstrapping network effects",
+    "eligible_agents": 1000,
+    "bonus_per_agent": 10000
+  },
+  "economic_security": {
+    "fixed_supply": true,
+    "no_premine": true,
+    "no_vc": true,
+    "no_founder_tokens": true,
+    "deflationary_mechanism": "protocol fee burn (5% marketplace + 10 $ALPHA external oracle queries)",
+    "censorship_resistant": true,
+    "decentralized": true
+  }
+}

@@ -1,0 +1,19 @@
+[Unit]
+Description=Alpha Network Discord Bot
+After=network.target alphanode.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/Alpha-Network/discord-bot
+ExecStart=/usr/bin/python3 /opt/Alpha-Network/discord-bot/bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Load secrets from environment file
+EnvironmentFile=/opt/Alpha-Network/discord-bot/.env
+
+[Install]
+WantedBy=multi-user.target

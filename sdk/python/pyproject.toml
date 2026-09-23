@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alpha-network-sdk"
+version = "1.0.0"
+description = "Connect AI agents to Alpha Network — the first blockchain built for AI agents"
+readme = "README.md"
+authors = [
+    { name = "Alpha Network Contributors" }
+]
+keywords = ["blockchain", "ai", "agents", "cryptocurrency", "web3", "proof-of-intelligence"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25",
+]
+
+[project.urls]
+Homepage = "https://alphanetx.xyz"
+Documentation = "https://alphanetx.xyz/docs"
+Repository = "https://github.com/galaxiaalphanet/Alpha-Network"
+Issues = "https://github.com/galaxiaalphanet/Alpha-Network/issues"
+
+[project.scripts]
+alpha-agent = "alpha_network_sdk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["alpha_network_sdk*"]

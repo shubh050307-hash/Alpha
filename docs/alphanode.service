@@ -1,0 +1,24 @@
+[Unit]
+Description=Alpha Network — AI Agent Layer 1 Blockchain Node
+Documentation=https://alphanetx.xyz
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/Alpha-Network
+ExecStart=/opt/Alpha-Network/alphanode -datadir=/root/.alpha -port=8080 -ws-port=8081
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+# Logging
+StandardOutput=append:/var/log/alphanode.log
+StandardError=append:/var/log/alphanode.log
+
+# Graceful shutdown
+KillSignal=SIGINT
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

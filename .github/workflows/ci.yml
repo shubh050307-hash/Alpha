@@ -1,0 +1,71 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: "go.mod"
+          cache: true
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Run tests
+        run: go test -v -race ./...
+
+      - name: Vet
+        run: go vet ./...
+
+  explorer:
+    name: Build Explorer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: "explorer/go.mod"
+          cache: true
+
+      - name: Build Explorer
+        run: cd explorer && go build -v .
+
+  sdk:
+    name: Python SDK Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python3 -m pip install requests
+
+      - name: Syntax check
+        run: python3 -m py_compile sdk/python/alpha_sdk.py
+
+      - name: Import test
+        run: python3 -c "import sys; sys.path.insert(0, '.'); from alpha_sdk import AlphaAgent, AlphaClient; print('SDK import OK')"
+        working-directory: sdk/python

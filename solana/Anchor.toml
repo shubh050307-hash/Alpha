@@ -1,0 +1,22 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+alpha_network = "AlphaNetX11111111111111111111111111111111111"
+
+[programs.devnet]
+alpha_network = "AlphaNetX11111111111111111111111111111111111"
+
+[programs.mainnet]
+alpha_network = "AlphaNetX11111111111111111111111111111111111"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/alpha-deploy.json"
+
+[scripts]
+test = "cargo test-bpf"

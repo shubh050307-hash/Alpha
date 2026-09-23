@@ -1,0 +1,41 @@
+{
+	auto_https off
+}
+
+alphanetx.xyz:80 {
+	bind 0.0.0.0
+
+	redir /whitepaper.html /whitepaper 301
+
+	rewrite /manifesto /manifesto.html
+	rewrite /whitepaper /whitepaper.html
+	rewrite /explorer /explorer/index.html
+	rewrite /explorer/blocks /explorer/blocks.html
+	rewrite /explorer/agents /explorer/agents.html
+	rewrite /explorer/tasks /explorer/tasks.html
+	rewrite /explorer/intelligence /explorer/intelligence.html
+
+	handle /api/* {
+		reverse_proxy localhost:8080 {
+			header_down Cache-Control "no-cache, no-store, must-revalidate"
+		}
+	}
+	handle /ws* {
+		reverse_proxy localhost:8081
+	}
+	handle /health* {
+		reverse_proxy localhost:8080
+	}
+	handle /faucet* {
+		reverse_proxy localhost:8080
+	}
+
+	rewrite /intelligence /intelligence.html
+	rewrite /presale /presale.html
+
+	handle {
+		reverse_proxy localhost:3003 {
+			header_down Cache-Control "no-cache, no-store, must-revalidate"
+		}
+	}
+}

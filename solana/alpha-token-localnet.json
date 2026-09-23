@@ -1,0 +1,13 @@
+{
+  "network": "localnet",
+  "tokenName": "Alpha Network",
+  "symbol": "ALPHA",
+  "decimals": 9,
+  "totalSupply": 1000000000,
+  "mint": "GEFaDsbpftmq6WPEuV8b3zZrX3RzjtNbYjuEEYZHDq6t",
+  "tokenAccount": "CnCynDupNWvLWUfSPBUyFkuFwZiZY1JuVYsVNMYaodXq",
+  "mintAuthority": "REVOKED",
+  "deployer": "8TX5RyTVF2ErujcjS9fDV8SmyRKNTviWrr9CLoFZGqWb",
+  "status": "DEPLOYED_AND_VERIFIED",
+  "devnet_status": "BLOCKED_FAUCET_RATE_LIMIT - deployment script ready and tested"
+}

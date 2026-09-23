@@ -1,0 +1,19 @@
+# Build artifacts
+alphanode
+*.log
+
+# Data directories (never bake chain data into image)
+/var/lib/alphanode/
+data/
+
+# Development files
+.git/
+.github/
+*.md
+sdk/
+website/
+discord-bot/
+explorer/
+
+# Go cache
+vendor/

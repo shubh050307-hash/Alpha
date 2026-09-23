@@ -1,0 +1,14 @@
+{
+  "network": "devnet",
+  "tokenName": "Alpha Network",
+  "symbol": "ALPHA",
+  "decimals": 9,
+  "totalSupply": 1000000000,
+  "rawSupply": "1000000000000000000",
+  "mint": "42vtTuV6YUys4iGBgcVzcG19sKNf2g5ji3nc8qkvCHiT",
+  "tokenAccount": "EmsgZ6a3Sx5gqHEpvgXZTT2PSLd1SDJ7oUqMrHNRrNSp",
+  "mintAuthority": "REVOKED",
+  "deployer": "8TX5RyTVF2ErujcjS9fDV8SmyRKNTviWrr9CLoFZGqWb",
+  "explorer": "https://solscan.io/token/42vtTuV6YUys4iGBgcVzcG19sKNf2g5ji3nc8qkvCHiT?cluster=devnet",
+  "deployedAt": "2026-05-14T01:00:06.357Z"
+}

@@ -1,0 +1,2 @@
+[console_scripts]
+alpha-agent = alpha_network_sdk.cli:main

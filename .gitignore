@@ -1,0 +1,79 @@
+# Binaries
+alphanode
+*.exe
+*.o
+*.a
+*.so
+
+# Go build artifacts
+/vendor/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# SDK node_modules
+sdk/python/__pycache__/
+sdk/python/.venv/
+sdk/typescript/node_modules/
+
+# Env / secrets
+.env
+.env.*
+
+# Discord bot runtime state (never overwrite on pull)
+discord-bot/milestone-state.json
+
+# Build artifacts
+/build/
+/dist/
+data/
+*.sst
+*.vlog
+*.mem
+explorer/alpha-explorer
+explorer/explorer
+explorer/explorer
+alphanode
+genesis.json
+solana/node_modules/
+solana/package-lock.json
+
+# Wallet documentation (sensitive — never commit)
+WALLETS.md
+
+# Wallet generator (references crypto paths, local tool)
+cmd/wallet/
+cmd/tls-proxy/tls-proxy
+
+# Faucet binary
+cmd/faucet/faucet
+
+# TypeScript SDK build output (built on publish, not committed)
+sdk/typescript/dist/
+sdk/typescript/package-lock.json
+sdk/typescript/examples/*.js
+sdk/typescript/examples/*.d.ts
+sdk/typescript/examples/*.js.map
+sdk/typescript/examples/*.d.ts.map
+sdk/typescript/node_modules/
+GALAXIA.md
+MEMORY.md
+SOUL.md
+memory/
+BUILD_REPORT.md
+docs/SECURITY_AUDIT.md
+*.operator.md
+*.private.md
+*.key
+*.pem
+*.secret
+secrets/
+private/
+internal/

@@ -1,0 +1,25 @@
+[Unit]
+Description=Alpha Network — Block Explorer Web UI
+Documentation=https://alphanetx.xyz/explorer
+After=network.target alphanode.service
+Requires=alphanode.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/Alpha-Network/explorer
+ExecStart=/opt/Alpha-Network/explorer/explorer -addr=:8082 -api=http://localhost:8080 -ws=ws://localhost:8081
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+# Logging
+StandardOutput=append:/var/log/alpha-explorer.log
+StandardError=append:/var/log/alpha-explorer.log
+
+# Graceful shutdown
+KillSignal=SIGINT
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
