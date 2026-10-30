@@ -34,6 +34,8 @@ discord-bot/milestone-state.json
 /build/
 /dist/
 data/
+!chain/data/
+!chain/data/*.go
 *.sst
 *.vlog
 *.mem
