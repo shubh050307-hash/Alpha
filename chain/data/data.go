@@ -220,8 +220,11 @@ func (o *IntelligenceOracle) ExportRecords(limit int, agentFilter core.AgentID, 
 	if limit <= 0 {
 		limit = 1000
 	}
+	if limit > 10000 {
+		limit = 10000
+	}
 
-	out := make([]*IntelligenceRecord, 0, limit)
+	out := make([]*IntelligenceRecord, 0)
 	for _, rec := range records {
 		if agentFilter != "" && rec.AgentID != agentFilter {
 			continue
